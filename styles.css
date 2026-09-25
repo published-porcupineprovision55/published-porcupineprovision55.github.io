@@ -8,3 +8,12 @@ header {
   color: white;
   padding: 10px;
 }
+nav a:link {
+  color: #78a9d1
+}
+nav a:hover{
+  color: #b9d7ee
+}
+nav a:visited{
+  color: #9ab6cc
+}
